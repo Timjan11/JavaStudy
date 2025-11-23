@@ -14,7 +14,7 @@ import ru.utegulov.weapon.*;
 
 
 public class Main{
-    public static void main(String[] args){
+    public static void main(String[] args) throws CloneNotSupportedException{
 
 
         //задача 1.4.1
@@ -311,5 +311,41 @@ public class Main{
         System.out.println(sidorov);
         System.out.println(itDepartment);
         System.out.println(hrDepartment);
+
+
+        //Задача 5.2.1
+        Fraction fr1 = new Fraction(12, 6);
+        Fraction fr1Copy = (Fraction) fr1.clone();
+
+        fr1Copy.setNumerator(11);
+        fr1Copy.setDenominator(10);
+        System.out.println(fr1);
+        System.out.println(fr1Copy);
+
+        System.out.println("\n");
+
+        //Задача 5.2.2
+
+        Point point1 = new Point(1, 2);
+        Point pointCopy = (Point) point1.clone();
+        pointCopy.setX(3);
+        pointCopy.setY(4);
+        System.out.println(point1);
+        System.out.println(pointCopy);
+        System.out.println("\n");
+
+        //Задача 5.2.3
+        Point point4 = new Point(22, 33);
+        Point point5 = new Point(44, 55);
+        LineWithArgs line = new LineWithArgs(point4, point5);
+        LineWithArgs lineCopy  = (LineWithArgs) line.clone();
+        Point point4Copy = new Point(11, 22);
+        Point point5Copy = new Point(66 ,77);
+
+        lineCopy.setStart(point4Copy);
+        lineCopy.setEnd(point5Copy);
+        System.out.println(line);
+        System.out.println(lineCopy);
+
     }
 }

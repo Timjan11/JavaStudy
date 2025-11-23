@@ -3,10 +3,10 @@ package ru.utegulov.mathematic;
 
 import java.util.Objects;
 
-public class Fraction {
+public class Fraction implements Cloneable{
 
-    final private int numerator;
-    final private int denominator;
+    private int numerator;
+    private int denominator;
 
     public Fraction(int numerator, int denominator){
         this.numerator= numerator;
@@ -16,6 +16,14 @@ public class Fraction {
         this.denominator = denominator;
     }
 
+    public void setNumerator(int numerator) {
+        if(denominator == 0) throw new IllegalArgumentException("Denominator must be not 0");
+        this.numerator = numerator;
+    }
+
+    public void setDenominator(int denominator) {
+        this.denominator = denominator;
+    }
 
     @Override
     public boolean equals(Object other) {
@@ -35,6 +43,12 @@ public class Fraction {
     public int hashCode() {
         return Objects.hash(numerator, denominator);
     }
+
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+
+    }
+
 
     public String toString(){
         return numerator+"/"+denominator;

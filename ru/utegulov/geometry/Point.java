@@ -3,7 +3,7 @@ package ru.utegulov.geometry;
 
 import java.util.Objects;
 
-public class Point {
+public class Point implements Cloneable{
     int x;
     int y;
      public Point(double v, double y){
@@ -26,6 +26,14 @@ public class Point {
 
      }
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(this==obj) return true;
@@ -41,6 +49,10 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public Object clone() throws CloneNotSupportedException{
+         return super.clone();
     }
 
     public double distanceTo(Point other) {
