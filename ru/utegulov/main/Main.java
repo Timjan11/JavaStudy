@@ -346,6 +346,13 @@ public class Main{
         lineCopy.setEnd(point5Copy);
         System.out.println(line);
         System.out.println(lineCopy);
+        System.out.println("\n");
 
+        //Задача 6.1.1
+
+        Box<Integer> box = new Box<>();
+        box.setOb(3);
+        box.isFull();
+        System.out.println(box);
     }
 }
