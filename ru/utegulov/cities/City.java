@@ -24,15 +24,14 @@ public class City {
     }
 
     public boolean connectedCitiesIsEquals(Object[] otherCities) {
-        // Проверка на null и длину
+
         if (otherCities == null || getConnectedCities().length != otherCities.length) {
             return false;
         }
 
-        // Поэлементное сравнение через equals()
         for (int i = 0; i < getConnectedCities().length; i++) {
             if (!Objects.equals(getConnectedCities()[i], otherCities[i])) {
-                return false; // Возвращаем false при первом несовпадении
+                return false;
             }
         }
         return true;
@@ -43,12 +42,8 @@ public class City {
         if (obj == this) return true;
         if (obj == null) return false;
 
-        // Проверяем, что obj - объект того же класса
         if (!(obj instanceof City)) return false;
-
         City other = (City) obj;
-
-        // Сравниваем массивы connectedCities
         return connectedCitiesIsEquals(other.getConnectedCities());
     }
 
