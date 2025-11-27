@@ -1,6 +1,6 @@
 package ru.utegulov.student;
 
-public class Student {
+public class Student implements Comparable<Student>{
 
     String name;
     int[] grades;
@@ -69,5 +69,13 @@ public class Student {
             }
             return res.toString();
         }
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        //if(this.getAVG() >i.avg()) return 1;
+        //if(this.getAVG() <i.avg()) return 0;
+        return 0;
+
     }
 }
