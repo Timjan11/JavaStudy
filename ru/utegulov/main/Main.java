@@ -346,6 +346,16 @@ public class Main{
         lineCopy.setEnd(point5Copy);
         System.out.println(line);
         System.out.println(lineCopy);
+        System.out.println("\n");
+
+        //Задача 6.1.2
+        Cat cat1 = new Cat("Oleg");
+        Parrot parrot  = new Parrot("riogreg");
+
+        Warehouse warehouse = new Warehouse(parrot);
+        System.out.println(warehouse.getObj().orElse("Ничего нету :( "));
+
+
 
     }
 }

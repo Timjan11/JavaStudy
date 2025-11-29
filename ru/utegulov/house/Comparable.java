@@ -1,4 +1,4 @@
-package ru.utegulov.geometry;
+package ru.utegulov.house;
 
 public interface Comparable <T> {
 

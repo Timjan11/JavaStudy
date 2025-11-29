@@ -5,7 +5,7 @@ public class Parrot extends Birds{
     private final String name = "Попугай";
     private String singingText;
 
-    Parrot(String singingText){
+    public Parrot(String singingText){
         this.singingText = singingText;
     }
 
@@ -21,5 +21,12 @@ public class Parrot extends Birds{
         for(int i = 0; i< randomInt;i++){
             System.out.println(singingText.charAt(i));
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Parrot{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
