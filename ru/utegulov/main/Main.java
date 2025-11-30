@@ -11,8 +11,6 @@ import ru.utegulov.student.*;
 import ru.utegulov.weapon.*;
 
 
-
-
 public class Main{
     public static void main(String[] args) throws CloneNotSupportedException{
 
@@ -346,6 +344,32 @@ public class Main{
         lineCopy.setEnd(point5Copy);
         System.out.println(line);
         System.out.println(lineCopy);
+        System.out.println("\n");
+
+
+        //Задача 6.1.2
+        Cat cat1 = new Cat("Oleg");
+        Parrot parrot  = new Parrot("riogreg");
+
+        Warehouse warehouse = new Warehouse(parrot);
+        System.out.println(warehouse.getObj().orElse("Ничего нету :( "));
+        System.out.println("\n");
+
+        //Задача 6.1.3
+
+        Student student1 = new Student("Durak", 2, 2, 3, 4, 2);
+        Student student3 = new Student("Balbes", 4, 5, 4, 5 );
+
+        System.out.println(student1.compareTo(student3));
+        System.out.println("\n");
+
+        //Задача 6.1.5
+
+        Point2D point6 = new Point2D(1, 3);
+        Point3D point3D = new Point3D(12, 45, 11);
+        LineWithArgs line2 = new LineWithArgs(point3D, point6);
+        System.out.println(line2.getStart());
+        System.out.println(line2);
 
     }
 }

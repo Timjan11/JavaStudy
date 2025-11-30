@@ -11,6 +11,10 @@ public class Point implements Cloneable{
 
      }
 
+     public Point(){
+
+     }
+
     public double getX() {
         return x;
     }

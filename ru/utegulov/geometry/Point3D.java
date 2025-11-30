@@ -1,6 +1,6 @@
 package ru.utegulov.geometry;
 
-class Point3D extends PointBaseClass {
+public class Point3D extends Point {
     private int x;
     private int y;
     private int z;
@@ -12,16 +12,15 @@ class Point3D extends PointBaseClass {
         this.z = z;
     }
 
-    @Override
     public String getCoordinates() {
         return "Point(" + x + ", " + y + ", " + z + ")";
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 

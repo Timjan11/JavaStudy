@@ -72,10 +72,10 @@ public class Student implements Comparable<Student>{
     }
 
     @Override
-    public int compareTo(Student o) {
-        //if(this.getAVG() >i.avg()) return 1;
-        //if(this.getAVG() <i.avg()) return 0;
-        return 0;
+    public int compareTo(Student student) {
+        if(getAVG()> student.getAVG()) return 1;
+        if(getAVG()== student.getAVG()) return 0;
+        return -1;
 
     }
 }

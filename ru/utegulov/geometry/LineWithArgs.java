@@ -2,31 +2,30 @@ package ru.utegulov.geometry;
 
 import java.util.Objects;
 
-public class LineWithArgs implements Cloneable{
+public class LineWithArgs<T extends Point> implements Cloneable{
 
+    private T start;
+    private T end;
+    public LineWithArgs(T start, T end){
 
-    private int x1, x2, y1, y2;
-    private Point start;
-    private Point end;
-    public LineWithArgs(Point start, Point end){
-//        this.x1 = x1;
-//        this.y1 = y1;
-//        this.x2 = x2;
-//        this.y2 = y2;
-//        start.x = x1;
-//        start.y = y1;
-//        end.x = x2;
-//        end.y = y2;
         this.start = start;
         this.end = end;
     }
 
-    public void setStart(Point start) {
+    public void setStart(T start) {
         this.start = start;
     }
 
-    public void setEnd(Point end) {
+    public void setEnd(T end) {
         this.end = end;
+    }
+
+    public T getStart() {
+        return start;
+    }
+
+    public T getEnd() {
+        return end;
     }
 
     @Override
@@ -41,13 +40,13 @@ public class LineWithArgs implements Cloneable{
 
     @Override
     public int hashCode() {
-        return Objects.hash(start, end, x1, x2, y1, y2);
+        return Objects.hash(start, end);
     }
 
     public Object clone() throws CloneNotSupportedException{
         LineWithArgs line = (LineWithArgs) super.clone();
-        line.start = (Point) this.start.clone();
-        line.end = (Point) this.end.clone();
+        line.start = (T) this.start.clone();
+        line.end = (T) this.end.clone();
         return line;
     }
 

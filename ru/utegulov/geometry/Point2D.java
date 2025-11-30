@@ -1,8 +1,9 @@
 package ru.utegulov.geometry;
 
-class Point2D extends PointBaseClass {
+public class Point2D extends Point{
     private int x;
     private int y;
+
 
     public Point2D(int x, int y) {
         super();
@@ -10,16 +11,15 @@ class Point2D extends PointBaseClass {
         this.y = y;
     }
 
-    @Override
     public String getCoordinates() {
         return "Point(" + x + ", " + y + ")";
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 }
