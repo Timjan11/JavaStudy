@@ -370,6 +370,21 @@ public class Main{
         LineWithArgs line2 = new LineWithArgs(point3D, point6);
         System.out.println(line2.getStart());
         System.out.println(line2);
+        System.out.println("\n");
+
+
+        //Задача 6.2.1
+        LineShift lineShift = new LineShift();
+        Point2D point2D = new Point2D(76, 34);
+        Point2D point2D1 = new Point2D(43, 91);
+
+        LineWithArgs <Point2D> line3 = new LineWithArgs<>(point2D, point2D1);
+
+        LineWithArgs<Point2D> shifted = LineShift.shift(line3);
+        //Вызов статического метода в Main через класс LineShift пример
+        System.out.println(line3);
+        System.out.println(shifted);
+
 
     }
 }
