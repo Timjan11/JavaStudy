@@ -11,7 +11,7 @@ public class Box<T> {
     }
 
     public void push(T newOb){
-        if(this.ob == null) throw new NotEmptyBoxExeption("Box is not empty!");
+        if(this.ob == null) throw new NotEmptyBoxException("Box is not empty!");
         this.ob = newOb;
     }
 
