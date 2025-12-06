@@ -1,5 +1,7 @@
 package ru.utegulov.main;
 
+import ru.utegulov.genericMethods.Function;
+import ru.utegulov.genericMethods.ListUtils;
 import ru.utegulov.mathematic.Fraction;
 import ru.utegulov.animals.*;
 import ru.utegulov.cities.*;
@@ -9,6 +11,11 @@ import ru.utegulov.house.*;
 import ru.utegulov.human.*;
 import ru.utegulov.student.*;
 import ru.utegulov.weapon.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.lang.Math;
 
 
 public class Main{
@@ -384,7 +391,63 @@ public class Main{
         //Вызов статического метода в Main через класс LineShift пример
         System.out.println(line3);
         System.out.println(shifted);
+        System.out.println('\n');
+
+
+
+        //Задача 6.3.1
+        List<String> list = Arrays.asList("a", "bb", "ccc");
+        Function<String, Integer> function =  s -> s.length();
+        List<Integer> result = ListUtils.map(list, function);
+        System.out.println(result);
+
+        List<Integer> list2 = Arrays.asList(1, -3, 7);
+        List<Integer> absValues = new ArrayList<>();
+        Function<Integer, Integer> function1 = i->{
+            if(i == null){
+                throw new IllegalArgumentException("i must be positive");
+            }
+            int absValue = Math.abs(i);
+            return absValue;
+        };
+//
+//        for(Integer n : list2){
+//            absValues.add(Math.abs(n));
+//        }
+        System.out.println(absValues);
+
+
+
+
+        int[] arr = {1, 2, 3, 4};
+        int[] arr2 = {7, 6, 5, 3};
+        int[] arr3 = {1, 0, 2, 9};
+        List<int[]> list3 = Arrays.asList(arr, arr2, arr3);
+
+        Function<int[], Integer> function3 = i -> {
+            if(i == null){
+                throw new IllegalArgumentException("i don't must be null");
+            }
+            int max = i[0];
+            for(int num:i){
+                if(num > max){
+                    max = num;
+                }
+            }
+            return max;
+        };
+
+        List<Integer> res7 = ListUtils.map(list3, function3);
+        System.out.println(res7);
+        System.out.println('\n');
+
+
 
 
     }
+
+
+
+
+
 }
