@@ -1,7 +1,6 @@
 package ru.utegulov.main;
 
-import ru.utegulov.genericMethods.Function;
-import ru.utegulov.genericMethods.ListUtils;
+import ru.utegulov.genericMethods.*;
 import ru.utegulov.mathematic.Fraction;
 import ru.utegulov.animals.*;
 import ru.utegulov.cities.*;
@@ -442,9 +441,63 @@ public class Main{
         System.out.println('\n');
 
 
+        //Задача 6.3.2
+        List<String> stringList = Arrays.asList("qwerty", "asdfg", "zx");
+        FunctionIf<String> fun = s -> s.length()>3;
+        List<String> stringResList = Filter.map(stringList, fun);
+        System.out.println(stringResList);
+        System.out.println("\n");
+
+        List<Integer> intList = Arrays.asList(1, -3, 7);
+        FunctionIf<Integer> fun2 = i ->i>0;
+        List<Integer> intResList = Filter.map(intList, fun2);
+        System.out.println(intResList);
+        System.out.println("\n");
+
+        int[] arr5 = new int[]{1, 3, 45, 6};
+        int[] arr6 = new int[]{-2,-1, -7};
+        int[] arr7 = new int[]{0, 1, -5};
+
+        List<int[]> intArrList2 = Arrays.asList(arr5, arr6, arr7);
+        FunctionIf<int[]> fun3 = i ->{
+            if(i == null){
+                throw new IllegalArgumentException("Array is null!");
+            }
+            boolean flag=true;
+            for(int j:i){
+                if(j>0){
+                    flag=false;
+                }
+            }
+            return flag;
+        };
+        List<int[]> intArrResList2 = Filter.map(intArrList2, fun3);
+        for(int[] arr9: intArrResList2){
+            System.out.println(Arrays.toString(arr9));
+        }
+
+        System.out.println("\n");
+
+        //Задача 6.3.3
+        String result1 = Join.join(stringList, "", (s, spaceoff)->s+spaceoff);
+        System.out.println(result1);
+
+        Integer i = Join.join(intList, 0, (a, b)->a+b);
+        System.out.println(i);
 
 
+        List<List<Integer>> listOfLists = Arrays.asList(
+                Arrays.asList(1, 2, 3),
+                Arrays.asList(4, 5),
+                Arrays.asList(6, 7, 8, 9)
+        );
+
+        //Integer totalCount1 = Join.join(listOfLists, 0, (a, b) -> a + b.size());
+        //System.out.println("3.1 Общее количество элементов: " + totalCount1);
     }
+
+
+
 
 
 
