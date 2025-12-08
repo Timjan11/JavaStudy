@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.lang.Math;
+import java.util.*;
 
 
 public class Main{
@@ -493,14 +494,71 @@ public class Main{
         );
 
         //Integer totalCount1 = Join.join(listOfLists, 0, (a, b) -> a + b.size());
+
         //System.out.println("3.1 Общее количество элементов: " + totalCount1);
+        System.out.println("\n");
+
+        //Задача 6.3.4
+        List<Integer> list1 = Arrays.asList(1, -3, 7);
+        ResultCollection<List<List<Integer>>> resultCollection = ()->{
+            List<List<Integer>> out = new ArrayList<>();
+            out.add(new ArrayList<>());
+            out.add(new ArrayList<>());
+            return out;
+        };
+
+        FunctionAdd<List<List<Integer>>, Integer> adder = (out, x)->{
+            if(x>0) {
+                out.get(0).add(x);
+            }
+            else{ out.get(1).add(x);}
+        };
+        List<List<Integer>> result2 = Collect.returnPFun(list1, resultCollection, adder);
+        System.out.println(result2.get(0));
+        System.out.println(result2.get(1));
+        System.out.println("\n");
+
+
+        ResultCollection<List<List<String>>> stringCollect = ArrayList::new;
+        FunctionAdd<List<List<String>>, String>  adder2= (result3, s)->{
+            int len2 = s.length();
+            List<String> target = null;
+
+            for(List<String> group:result3) {
+                if (!group.isEmpty() && group.get(0).length() == len) {
+                    target = group;
+                    break;
+                }
+            }
+
+                if (target == null) {
+                    target = new ArrayList<>();
+                    result3.add(target);
+                }
+
+                target.add(s);
+            };
+
+            List<List<String>> resWords =
+                    Collect.returnPFun(stringList, stringCollect, adder2);
+
+            System.out.println(resWords);
+
+
+        List<String> words2 = Arrays.asList("qwerty", "asdfg", "qwerty", "qw");
+
+        ResultCollection<Set<String>> factorySet = HashSet::new;
+
+        FunctionAdd<Set<String>, String> adderSet = (set, s) -> set.add(s);
+
+        Set<String> resSet =
+                Collect.returnPFun(words2, factorySet, adderSet);
+
+        System.out.println("Задание 3:");
+        System.out.println(resSet);
+
+        System.out.println("\n");
+
+
     }
-
-
-
-
-
-
-
-
 }
