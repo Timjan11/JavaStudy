@@ -355,12 +355,12 @@ public class Main{
 
 
         //Задача 6.1.2
-        Cat cat1 = new Cat("Oleg");
-        Parrot parrot  = new Parrot("riogreg");
-
-        Warehouse warehouse = new Warehouse(parrot);
-        System.out.println(warehouse.getObj().orElse("Ничего нету :( "));
-        System.out.println("\n");
+//        Cat cat1 = new Cat("Oleg");
+//        Parrot parrot  = new Parrot("riogreg");
+//
+//        Warehouse warehouse = new Warehouse(parrot);
+//        System.out.println(warehouse.getObj().orElse("Ничего нету :( "));
+//        System.out.println("\n");
 
         //Задача 6.1.3
 
@@ -551,8 +551,7 @@ public class Main{
 
         FunctionAdd<Set<String>, String> adderSet = (set, s) -> set.add(s);
 
-        Set<String> resSet =
-                Collect.returnPFun(words2, factorySet, adderSet);
+        Set<String> resSet = Collect.returnPFun(words2, factorySet, adderSet);
 
         System.out.println("Задание 3:");
         System.out.println(resSet);
