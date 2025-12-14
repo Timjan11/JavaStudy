@@ -559,7 +559,12 @@ public class Main{
         System.out.println("\n");
 
 
-        //Задача 7.1.1
+        //Опционалы
+
+        Name human4 = new Name("Managa", null);
+        System.out.println(human4.getLastName());
+        System.out.println(human4.getFirstName().orElse("oy boy"));
+
 
 
     }

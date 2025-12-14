@@ -1,5 +1,7 @@
 package ru.utegulov.human;
 
+import java.util.Optional;
+
 public class Name {
     String lastName;
     String firstName;
@@ -19,6 +21,18 @@ public class Name {
         this(lastName, null, null);
     }
 
+
+    public Optional<String> getFirstName() {
+        return Optional.ofNullable(firstName);
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
