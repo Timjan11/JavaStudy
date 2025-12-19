@@ -567,5 +567,32 @@ public class Main{
 
 
 
+
+
+
+        List<String> lines = List.of("12", "abc", "5", "7x", "10");
+
+        int sum = Stream.of(lines)
+                .filter(s -> {
+                    try {
+                        Integer.parseInt(s);
+                        return true;
+                    } catch (NumberFormatException e) {
+                        return false;
+                    }
+                }).map(Integer::parseInt).reduce(0, (acc, x) -> acc + x);
+
+        System.out.println("Сумма = " + sum);
+
+
+        List<String> lines2 = List.of("Hello", "world", "Java", "stream", "Test");
+
+        long count = Stream.of(lines)
+                .filter(s -> !s.isEmpty() && Character.isUpperCase(s.charAt(0)))
+                .map(s -> 1L)
+                .reduce(0L, (acc, x) -> acc + x);
+
+
+        System.out.println("Строк с заглавной = " + count); // 3
     }
 }
