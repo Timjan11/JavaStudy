@@ -8,6 +8,7 @@ import ru.utegulov.connection.*;
 import ru.utegulov.geometry.*;
 import ru.utegulov.house.*;
 import ru.utegulov.human.*;
+import ru.utegulov.other.*;
 import ru.utegulov.student.*;
 import ru.utegulov.weapon.*;
 
@@ -16,6 +17,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.lang.Math;
 import java.util.*;
+
+import static ru.utegulov.streams.Funs.*;
 
 
 public class Main{
@@ -594,5 +597,31 @@ public class Main{
 
 
         System.out.println("Строк с заглавной = " + count); // 3
+
+
+        //Светофор
+
+        TrafficLight tf = new TrafficLight();
+        tf.next();
+        tf.next();
+        tf.next();
+        tf.next();
+        tf.next();
+        tf.next();
+        tf.next();
+
+
+
+        //Каратист
+        Karateka Tyler = new Karateka("Tyler");
+        Karateka Edward = new Karateka("Edward");
+        CombinationAttack combo = new CombinationAttack();
+        combo.addAttack(new Hit(Tyler));
+        combo.addAttack(new Kick(Edward));
+        combo.addAttack(new Hit(Tyler));
+        combo.perform();
+
+        //
+        System.out.println(action((x, y)->x+y, 4, 5, action((x, y)->x-y,7, 8)));
     }
 }
