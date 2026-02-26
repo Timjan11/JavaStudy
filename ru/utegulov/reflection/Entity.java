@@ -1,5 +1,7 @@
 package ru.utegulov.reflection;
 
+import ru.utegulov.annotation.Default;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +59,8 @@ public class Entity {
     }
 }
 
+
+
 class A1 extends Entity {
     String s = "hello";
     int x = 42;
@@ -65,6 +69,8 @@ class A1 extends Entity {
 class B extends A1 {
     String text = "B";
 }
+
+
 
 class Test {
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package ru.utegulov.reflection;
 
+import ru.utegulov.annotation.Invoke;
 import ru.utegulov.geometry.LineWithArgs;
 import ru.utegulov.geometry.Point2D;
 
@@ -28,7 +29,7 @@ public class ReflectionUtils {
         return fields;
     }
 
-
+    @Invoke
     public static void lineConnector(LineWithArgs<Point2D> firstLine, LineWithArgs<Point2D> secondLine) throws NoSuchFieldException, IllegalAccessException {
         Field end = LineWithArgs.class.getDeclaredField("end");
         end.setAccessible(true);
