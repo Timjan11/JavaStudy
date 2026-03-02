@@ -1,5 +1,10 @@
 package ru.utegulov.animals;
 
+
+import ru.utegulov.annotation.AnimalValidator;
+import ru.utegulov.annotation.Validate;
+
+@Validate({AnimalValidator.class})
 public class Cat {
     String name;
 
@@ -8,6 +13,9 @@ public class Cat {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
 
     public String toString() {
         return "cat: "+ name;
