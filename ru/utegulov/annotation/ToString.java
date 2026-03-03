@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 @Target({ElementType.TYPE, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 
-public @interface toString {
+public @interface ToString {
     ToStringValue value() default ToStringValue.YES;
 }
 
@@ -21,10 +21,10 @@ class Test1{
         Test1 test1 = new Test1("Oleg");
         System.out.println(test1);
     }
-    @toString(ToStringValue.YES)
+    @ToString(ToStringValue.YES)
     private String name;
 
-    @toString(ToStringValue.NO)
+    @ToString(ToStringValue.NO)
     private int secret = 42;
 
     private int id = 100;
@@ -49,11 +49,16 @@ class Test1{
             try{
                 field.setAccessible(true);
                 boolean isYes;
-                toString annotation = field.getAnnotation(toString.class);
+                ToString annotation = field.getAnnotation(ToString.class);
+                ToString classAnnotation = field.getClass().getAnnotation(ToString.class);
+
+
                 if(annotation != null){
                     isYes = annotation.value() == ToStringValue.YES;
-                }else{
+                }else if((classAnnotation.value() == ToStringValue.YES)||(classAnnotation.value() == null)){
                     isYes = true;
+                }else{
+                    isYes = false;
                 }
 
                 if(isYes){
