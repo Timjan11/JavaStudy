@@ -38,7 +38,7 @@ public class CacheAnnotationUtils {
         List<String> cachedMethods = Arrays.stream(cacheAnnotation.value()).toList();
 
         if(cachedMethods.isEmpty()){
-            return getAllMethods(clz);
+            return getAllMethods(clz); //по дефолту передаем все методы класса
         }
         return cachedMethods;
     }
@@ -57,6 +57,8 @@ public class CacheAnnotationUtils {
     public static void main(String[] args) {
         Cache cache = App.class.getAnnotation(Cache.class);
 
+
+
         System.out.println("App: "+ Arrays.toString(cache.value()));
     }
 
@@ -66,9 +68,9 @@ public class CacheAnnotationUtils {
 @Cache({"getName", "computeDate"})
 class App{
 
-    private String name;
-    private int startDateInDays;
-    private  int endDateInDays;
+    private String name = "Vanya";
+    private int startDateInDays = 12;
+    private  int endDateInDays = 18;
 
     public String getName() {
         return name;

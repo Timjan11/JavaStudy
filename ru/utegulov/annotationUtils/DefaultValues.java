@@ -1,5 +1,15 @@
 package ru.utegulov.annotationUtils;
-//
-//public class DefaultValues {
-//    public
-//}
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class DefaultValues {
+    public static Map<Class<?>, Object> DEFAULTS = new HashMap<>(){
+
+
+
+    };
+
+
+
+}
