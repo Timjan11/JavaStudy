@@ -6,6 +6,24 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CacheAnnotationUtils {
+
+
+    public static List<Object> cache(Object...objects){
+
+        List<Object> res = new ArrayList<>();
+
+        for(Object obj: objects){
+            if(obj==null)continue;
+            Class clz = obj.getClass();
+
+            List<String> cached = getCachedMethods(clz);
+            res.add(cached);
+        }
+return res;
+    }
+
+
+
     public static boolean isCacheable(Class<?> clazz, String methodName){
 
         List<String>  errors = new ArrayList<>();
@@ -35,11 +53,18 @@ public class CacheAnnotationUtils {
 
         Cache cacheAnnotation = clz.getAnnotation(Cache.class);
 
-        List<String> cachedMethods = Arrays.stream(cacheAnnotation.value()).toList();
-
-        if(cachedMethods.isEmpty()){
-            return getAllMethods(clz); //по дефолту передаем все методы класса
+        List<String> allMethods = getAllMethods(cacheAnnotation.getClass());
+        List<String> cachedMethods = new ArrayList<>();
+        if(allMethods.isEmpty()){
+            return null;
         }
+
+        for (String method: allMethods){
+            if(isCacheable(clz, method)){
+                cachedMethods.add(method);
+            }
+        }
+
         return cachedMethods;
     }
 
@@ -54,13 +79,7 @@ public class CacheAnnotationUtils {
         return methodNames;
     }
 
-    public static void main(String[] args) {
-        Cache cache = App.class.getAnnotation(Cache.class);
 
-
-
-        System.out.println("App: "+ Arrays.toString(cache.value()));
-    }
 
 }
 
